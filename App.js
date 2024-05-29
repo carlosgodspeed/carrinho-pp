@@ -1,22 +1,16 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native'
+
+import Routes from './src/routes'
+import CartProvider from './src/contexts/CartContext'
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>ok funcionando</Text>
-      <Text>ok funcionando teste de atualização</Text>
-      <Text>teste de velocidade </Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <CartProvider>
+        <StatusBar backgroundColor="#FAFAFA" barStyle="dark-content" />
+        <Routes/>
+      </CartProvider>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
