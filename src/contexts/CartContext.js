@@ -9,7 +9,13 @@ function CartProvider({ children }){
     const indexItem = cart.findIndex(item => item.id === newItem.id)
 
     if(indexItem !== -1){
+      let cartList = cart;
 
+      cartList[indexItem].amount = cartList[indexItem].amount + 1;
+      cartList[indexItem].total = cartList[indexItem].amount * cartList[indexItem].price;
+
+      setCart(cartList)
+      return;
     }
 
     let data = {
